@@ -1,0 +1,16 @@
+PS C:\Users\YunSubLee.SUBLEE> docker pull ubuntu  // ubuntu를 Docker registry에서 pull한다.
+Using default tag: latest
+latest: Pulling from library/ubuntu
+Digest: sha256:bea6d19168bbfd6af8d77c2cc3c572114eb5d113e6f422573c93cb605a0e2ffb
+Status: Image is up to date for ubuntu:latest
+docker.io/library/ubuntu:latest
+PS C:\Users\YunSubLee.SUBLEE> docker container run -it -d -rm --name ubuntuos ubuntu:latest // docker의 container에서
+unknown shorthand flag: 'r' in -rm
+See 'docker container run --help'.
+PS C:\Users\YunSubLee.SUBLEE> docker container run -it -d --rm --name ubuntuos ubuntu:latest
+f23065b3c960c0799b25f956484ed0fd1275b811eb1ab03f9ae4e677ef383639
+PS C:\Users\YunSubLee.SUBLEE> docker exec -it ubuntuos /bin/bash
+root@f23065b3c960:/# uname
+Linux
+root@f23065b3c960:/# exit
+exit
