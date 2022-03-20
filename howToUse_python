@@ -1,0 +1,64 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+새로운 기능 및 개선 사항에 대 한 최신 PowerShell을 설치 하세요! https://aka.ms/PSWindows
+
+PS C:\Users\YunSubLee.SUBLEE> docker pull python  // docker에서 python을 가져온다.
+Using default tag: latest
+latest: Pulling from library/python
+Digest: sha256:c79b09764b2a8d920bcf3c5fe79b79370f445c855f3822069096c8995f9cee0c
+Status: Image is up to date for python:latest
+docker.io/library/python:latest
+PS C:\Users\YunSubLee.SUBLEE> docker image ls // docker에서 리스트를 확인한다.
+REPOSITORY               TAG       IMAGE ID       CREATED        SIZE
+python                   latest    03ef5b5a30a4   46 hours ago   919MB
+ubuntu                   latest    ff0fea8310f3   2 days ago     72.8MB
+docker/getting-started   latest    bd9a9f733898   5 weeks ago    28.8MB
+hello-world              latest    feb5d9fea6a5   5 months ago   13.3kB
+PS C:\Users\YunSubLee.SUBLEE> docker container run -it -d --rm --name pythonclid python:latest
+// docker야, container를 실행해줘. -it(interactive모드: 손으로 쓰는 타입), -d(daemon: 서버처럼 둥둥 떠다녔으면 좋겠어),
+// -rm(나중에 임무가 끝나면 메모리를 지워줘), --name *** (이름은 ***이야)
+f1f16ef203a87d96f2252ab9e068d8945c7e8eaf2e57b178e9a39e0ff8dd3544
+PS C:\Users\YunSubLee.SUBLEE> docker image ls
+REPOSITORY               TAG       IMAGE ID       CREATED        SIZE
+python                   latest    03ef5b5a30a4   46 hours ago   919MB
+ubuntu                   latest    ff0fea8310f3   2 days ago     72.8MB
+docker/getting-started   latest    bd9a9f733898   5 weeks ago    28.8MB
+hello-world              latest    feb5d9fea6a5   5 months ago   13.3kB
+
+// 파이썬을 Linux에서 돌리기
+
+PS C:\Users\YunSubLee.SUBLEE> docker exec -it pythonclid /bin/bash
+root@f1f16ef203a8:/# uname
+Linux
+root@f1f16ef203a8:/# ls -al
+total 76
+drwxr-xr-x   1 root root 4096 Mar 20 14:33 .
+drwxr-xr-x   1 root root 4096 Mar 20 14:33 ..
+-rwxr-xr-x   1 root root    0 Mar 20 14:33 .dockerenv
+drwxr-xr-x   1 root root 4096 Mar 18 06:31 bin
+drwxr-xr-x   2 root root 4096 Dec 11 17:25 boot
+drwxr-xr-x   5 root root  360 Mar 20 14:33 dev
+drwxr-xr-x   1 root root 4096 Mar 20 14:33 etc
+drwxr-xr-x   2 root root 4096 Dec 11 17:25 home
+drwxr-xr-x   1 root root 4096 Mar 18 06:31 lib
+drwxr-xr-x   2 root root 4096 Mar 16 00:00 lib64
+drwxr-xr-x   2 root root 4096 Mar 16 00:00 media
+drwxr-xr-x   2 root root 4096 Mar 16 00:00 mnt
+drwxr-xr-x   2 root root 4096 Mar 16 00:00 opt
+dr-xr-xr-x 246 root root    0 Mar 20 14:33 proc
+drwx------   1 root root 4096 Mar 18 15:57 root
+drwxr-xr-x   3 root root 4096 Mar 16 00:00 run
+drwxr-xr-x   1 root root 4096 Mar 18 06:30 sbin
+drwxr-xr-x   2 root root 4096 Mar 16 00:00 srv
+dr-xr-xr-x  11 root root    0 Mar 20 14:33 sys
+drwxrwxrwt   1 root root 4096 Mar 18 16:05 tmp
+drwxr-xr-x   1 root root 4096 Mar 16 00:00 usr
+drwxr-xr-x   1 root root 4096 Mar 16 00:00 var
+root@f1f16ef203a8:/# python
+Python 3.10.3 (main, Mar 18 2022, 16:01:59) [GCC 10.2.1 20210110] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> print("Hello world")
+Hello world
+>>> exit()
+root@f1f16ef203a8:/# exit
